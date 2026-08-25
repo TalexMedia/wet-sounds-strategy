@@ -884,6 +884,10 @@ window.addEventListener("load", function(){
   var wrap = document.querySelector('#wrap');
   var statusEl = document.getElementById('tm-status');
   var saveTimer = null;
+  // Only a real edit makes the page dirty. Without this, merely opening the doc
+  // and navigating away wrote a draft on unload, which is how a stale view got
+  // promoted into the cloud and then restored on every later visit.
+  var dirty = false;
   window.__talexDocKey = DOC_KEY;
   window.__tmSkipSave = false;
 
@@ -1008,6 +1012,7 @@ window.addEventListener("load", function(){
     wrap.addEventListener('input', scheduleSave);
     window.addEventListener('beforeunload', function(){
       if(window.__tmSkipSave) return;
+      if(!dirty) return;          // nothing was typed; never write a draft
       clearTimeout(saveTimer); save();
     });
   }
@@ -1015,6 +1020,7 @@ window.addEventListener("load", function(){
   document.getElementById('tm-reset').addEventListener('click', function(){
     if(!confirm('Reset this page back to the original text? All saved edits will be lost.')) return;
     window.__tmSkipSave = true;
+    dirty = false;
     try { localStorage.removeItem(LOCAL_KEY); } catch(e){}
     resetDraft();
     location.reload();
