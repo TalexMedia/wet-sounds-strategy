@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!-- LOCKED — swap only Wet Sounds in the title -->
+<title>Wet Sounds · A Custom Strategy · Talex Media</title>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/png" sizes="192x192" href="https://static.wixstatic.com/media/3c6878_9a68ae0b3ff84e198fdd43fac493e294~mv2_d_1500_1500_s_2.png/v1/fill/w_192,h_192,lg_1,usm_0.66_1.00_0.01/3c6878_9a68ae0b3ff84e198fdd43fac493e294~mv2_d_1500_1500_s_2.png"/>
+<link rel="shortcut icon" href="https://static.wixstatic.com/media/3c6878_9a68ae0b3ff84e198fdd43fac493e294~mv2_d_1500_1500_s_2.png/v1/fill/w_32,h_32,lg_1,usm_0.66_1.00_0.01/3c6878_9a68ae0b3ff84e198fdd43fac493e294~mv2_d_1500_1500_s_2.png" type="image/png"/>
+<link rel="apple-touch-icon" href="https://static.wixstatic.com/media/3c6878_9a68ae0b3ff84e198fdd43fac493e294~mv2_d_1500_1500_s_2.png/v1/fill/w_180,h_180,lg_1,usm_0.66_1.00_0.01/3c6878_9a68ae0b3ff84e198fdd43fac493e294~mv2_d_1500_1500_s_2.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<!-- LOCKED — the entire <style> block. Do not edit. -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --o:#E85A0C;
+  --o-dim:rgba(232,90,12,0.08);
+  --o-mid:rgba(232,90,12,0.18);
+  --o-border:rgba(232,90,12,0.28);
+  --bg:#F5F2EC;
+  --surface:#FFFFFF;
+  --surface2:#FAF8F5;
+  --border:#E2DDD6;
+  --border-strong:#C8C2BA;
+  --txt:#1A1816;
+  --txt2:#6B625A;
+  --txt3:#A89E96;
+  --green:#2D8C52;
+  --green-bg:#EDF7F2;
+  --green-border:#A8D9BC;
+  --red:#C0392B;
+  --red-bg:#FDF0EE;
+  --red-border:#E8BEBC;
+  --amber:#B07D10;
+  --amber-bg:#FDF7EC;
+  --amber-border:#E0C880;
+}
+
+html{background:var(--bg);color:var(--txt);font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6}
+body{background:var(--bg);min-height:100vh}
+#wrap{max-width:700px;margin:0 auto;padding:0 1.25rem 5rem}
+
+.disp{font-family:'Bebas Neue',sans-serif;letter-spacing:0.04em;line-height:1}
+.head{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:0.02em;line-height:1.1}
+.lbl{font-family:'Oswald',sans-serif;font-weight:500;font-size:11px;letter-spacing:0.14em;text-transform:uppercase}
+.italic{font-family:'EB Garamond',Georgia,serif;font-style:italic}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border)}
+.topbar-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.topbar-logo{height:28px;width:auto}
+.topbar-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.08em;color:var(--txt)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.topbar-cta{background:var(--o);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:8px 14px;border-radius:6px;text-decoration:none;transition:background 0.15s}
+.topbar-cta:hover{background:#c94d08}
+
+.hero{padding:3rem 0 2.5rem;border-bottom:2px solid var(--o)}
+.hero-step{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;flex-wrap:wrap}
+.step-pill{background:var(--o);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:3px}
+.hero-eyebrow{font-family:'Oswald',sans-serif;font-size:12px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt2)}
+.hero-title{font-size:clamp(40px,8vw,66px);color:var(--txt);margin-bottom:0.5rem}
+.hero-tagline{font-size:clamp(19px,3.5vw,26px);color:var(--o);margin-bottom:1rem}
+
+.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:8px;background:var(--surface);overflow:hidden;margin:2rem 0}
+.stat-cell{padding:1rem;text-align:center;border-right:1px solid var(--border)}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:0.04em;color:var(--o)}
+.stat-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--txt3);font-family:'Oswald',sans-serif;font-weight:400}
+
+.source-link{font-size:11px;color:var(--txt3);text-decoration:none;border-bottom:1px dotted var(--border-strong);transition:color 0.15s,border-color 0.15s;white-space:nowrap;margin-left:4px;font-family:'Oswald',sans-serif;letter-spacing:0.04em;position:relative;z-index:2}
+.source-link:hover{color:var(--o);border-bottom-color:var(--o)}
+.source-link::before{content:"↗ "}
+
+.callout{border-left:3px solid var(--o);padding:1rem 1.25rem;background:var(--surface);border-radius:0 8px 8px 0;margin:1.75rem 0}
+.callout p{font-family:'EB Garamond',Georgia,serif;font-style:italic;font-size:16px;color:var(--txt);line-height:1.75}
+.callout-attr{margin-top:0.6rem;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--o);font-family:'Oswald',sans-serif;font-weight:500}
+.callout-attr a{color:inherit;border-bottom:1px dotted var(--border-strong);text-decoration:none;transition:color 0.15s,border-color 0.15s}
+.callout-attr a:hover{color:var(--o);border-bottom-color:var(--o)}
+
+.section-intro{margin-bottom:1.25rem}
+.section-intro-row{display:flex;align-items:center;gap:8px;margin-bottom:0.4rem}
+.sec-pill-dark{background:var(--txt);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:3px}
+.sec-pill-orange{background:var(--o);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:3px}
+.section-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3)}
+.section-title{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:0.02em;line-height:1.1;font-size:22px;color:var(--txt);margin-bottom:0.25rem}
+.section-subtitle{font-size:13px;color:var(--txt3);font-style:italic;font-family:'EB Garamond',Georgia,serif}
+
+.section-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem}
+.section-block p{font-size:14px;color:var(--txt2);line-height:1.8;margin-bottom:0.9rem}
+.section-block p:last-child{margin-bottom:0}
+.section-block strong{color:var(--txt);font-weight:500}
+.section-block em{font-family:'EB Garamond',Georgia,serif;font-style:italic;color:var(--txt)}
+.section-block a{color:var(--txt2);text-decoration:none;border-bottom:1px dotted var(--border-strong);transition:color 0.15s,border-color 0.15s}
+.section-block a:hover{color:var(--o);border-bottom-color:var(--o)}
+
+.rule{height:1px;background:var(--border);border:none;margin:1.5rem 0}
+.rule-orange{height:2px;background:var(--o);border:none;margin:2.5rem 0}
+
+.ideas-grid{display:flex;flex-direction:column;gap:0.75rem;margin-top:1rem}
+.idea-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.3rem;display:flex;gap:1.1rem;align-items:flex-start}
+.idea-card-featured{background:rgba(232,90,12,0.05);border-color:var(--o)}
+.idea-num{flex-shrink:0;width:36px;height:36px;background:var(--o);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:18px;display:flex;align-items:center;justify-content:center;border-radius:6px;margin-top:2px;letter-spacing:0.04em}
+.idea-body{flex:1;min-width:0}
+.idea-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:15px;color:var(--txt);letter-spacing:0.02em;margin-bottom:6px;line-height:1.35}
+.idea-desc{font-size:13.5px;color:var(--txt2);line-height:1.7}
+.idea-desc em{font-family:'EB Garamond',Georgia,serif;font-style:italic;color:var(--txt)}
+.idea-tag{margin-top:10px;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:0.12em;color:var(--o);text-transform:uppercase;font-weight:600}
+.idea-tag a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--o)}
+.idea-tag a:hover{border-bottom-style:solid}
+.why-block{margin-top:0.95rem;padding-top:0.9rem;border-top:1px solid var(--border)}
+.why-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--o);margin-bottom:0.65rem}
+.why-list{display:flex;flex-direction:column;gap:0.55rem}
+.why-item{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--txt2);line-height:1.5}
+.why-item strong{color:var(--txt);font-weight:600}
+.pilot-body{font-size:12.5px;color:var(--txt2);line-height:1.7}
+.why-icon{flex-shrink:0;width:16px;height:16px;margin-top:1px}
+.why-icon svg{width:16px;height:16px;display:block;stroke:var(--o);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.dir-list{list-style:none;padding:0;margin:0.6rem 0 1rem;display:flex;flex-direction:column;gap:0.65rem}
+.dir-item{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.7;color:var(--txt2)}
+.dir-item strong{color:var(--txt);font-weight:500}
+.dir-icon{flex-shrink:0;width:17px;height:17px;margin-top:3px}
+.dir-icon svg{width:17px;height:17px;display:block;stroke:var(--o);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+.reel-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:0.5rem}
+@media(max-width:560px){.reel-grid{grid-template-columns:1fr}}
+.reel-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.95rem 1.05rem;display:flex;flex-direction:column}
+.reel-eyebrow{font-family:'Oswald',sans-serif;font-size:9.5px;letter-spacing:0.16em;color:var(--o);text-transform:uppercase;font-weight:600;margin-bottom:0.4rem}
+.reel-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:13.5px;color:var(--txt);letter-spacing:0.03em;margin-bottom:0.45rem;line-height:1.3}
+.reel-body{font-size:12.5px;color:var(--txt2);line-height:1.6;flex:1;margin-bottom:0.5rem}
+.reel-body em{font-family:'EB Garamond',Georgia,serif;font-style:italic;color:var(--txt)}
+.reel-body a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--border-strong);transition:color 0.15s,border-color 0.15s}
+.reel-body a:hover{color:var(--o);border-bottom-color:var(--o)}
+
+.whats-inside{margin:0.5rem 0 1rem}
+.wi-heading{font-family:'Oswald',sans-serif;font-weight:600;font-size:18px;color:var(--txt);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1rem;text-align:center}
+.whats-inside-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:560px){.whats-inside-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:380px){.whats-inside-grid{grid-template-columns:1fr}}
+.wi-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.95rem 1rem;text-decoration:none;color:inherit;transition:border-color 0.15s,background 0.15s}
+.wi-card:hover{border-color:var(--o);background:#FCFAF7}
+.wi-num{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--o);line-height:1;letter-spacing:0.04em;margin-bottom:8px}
+.wi-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:var(--txt);letter-spacing:0.04em;margin-bottom:5px;line-height:1.3;text-transform:uppercase}
+.wi-desc{font-size:12.5px;color:var(--txt2);line-height:1.55}
+
+.case-card{background:var(--txt);border-radius:12px;padding:1.5rem 1.5rem 1.75rem;margin-bottom:1rem;color:#fff;overflow:hidden}
+.cs-label{font-family:'Oswald',sans-serif;font-weight:500;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--o);margin-bottom:0.5rem}
+.cs-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,42px);letter-spacing:0.03em;line-height:1;color:#fff;margin-bottom:1.1rem}
+.cs-stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1.25rem}
+.cs-stat-cell{background:rgba(255,255,255,0.04);border-top:2px solid var(--o);padding:0.75rem 0.6rem 0.65rem}
+.cs-stat-num{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.03em;color:var(--o);line-height:1.05}
+.cs-stat-label{font-size:10px;color:rgba(255,255,255,0.55);line-height:1.35;margin-top:2px}
+.cs-section{border-left:3px solid var(--o);padding:0.5rem 0 0.5rem 0.85rem;margin-bottom:0.9rem}
+.cs-section:last-child{margin-bottom:0}
+.cs-section-label{font-family:'Oswald',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--o);margin-bottom:0.35rem}
+.cs-section-body{font-size:13px;color:rgba(255,255,255,0.78);line-height:1.7}
+.cs-footer-meta{margin-top:1.1rem;padding-top:0.9rem;border-top:1px solid rgba(255,255,255,0.1);font-size:11px;color:rgba(255,255,255,0.45);font-family:'Oswald',sans-serif;letter-spacing:0.06em;text-align:center}
+.cs-video-embed{margin-top:1.25rem;position:relative;width:100%;aspect-ratio:16/9;background:#0F0E0D;border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden}
+.cs-video-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block}
+
+.cred-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.25rem}
+.cred-chip{padding:6px 12px;border:1px solid var(--o-border);background:var(--o-dim);border-radius:4px;font-family:'Oswald',sans-serif;font-weight:500;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--o)}
+
+.byline{display:flex;gap:14px;align-items:center;padding:1rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin:1.5rem 0}
+.byline-avatar{width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--o-dim);border:2px solid var(--o);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--o);flex-shrink:0}
+.byline-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.byline-body{flex:1;min-width:0}
+.byline-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;color:var(--txt);letter-spacing:0.03em}
+.byline-sub{font-size:12px;color:var(--txt2);line-height:1.5;margin-top:2px}
+.byline-imdb{flex-shrink:0;display:inline-flex;align-items:center;text-decoration:none;transition:transform 0.15s ease}
+.byline-imdb:hover{transform:translateY(-1px)}
+.byline-imdb img{height:22px;width:auto;display:block;border-radius:3px}
+.trust-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1.6rem;padding:1.15rem 0 0.35rem}
+.trust-logo{width:auto;object-fit:contain;display:block;opacity:0.9}
+.trust-logo.discovery{height:22px}
+.trust-logo.nbc{height:15px}
+.trust-logo.bbc{height:24px}
+.trust-emmy{display:inline-flex;flex-direction:column;align-items:center;line-height:1.1;text-align:center}
+.trust-emmy .n{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.03em;color:var(--o);line-height:1}
+.trust-emmy .t{font-family:'Oswald',sans-serif;font-size:8px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--txt3);margin-top:1px}
+
+.brand-mark-row{display:flex;align-items:center;gap:14px;margin-bottom:1.25rem;flex-wrap:wrap}
+.brand-logo-wrap{width:56px;height:56px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:6px;flex-shrink:0}
+.brand-logo-wrap img{max-width:100%;max-height:100%;object-fit:contain}
+.brand-logo-fallback{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:var(--o);line-height:1}
+
+.channel-grid{display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:1rem}
+.channel-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.95rem;display:flex;gap:12px;align-items:flex-start;transition:border-color 0.15s,background 0.15s}
+.channel-card:hover{border-color:var(--o);background:#FCFAF7}
+.channel-card.channel-gap{border-style:dashed;background:var(--surface2)}
+.channel-link{position:absolute;inset:0;z-index:1;border-radius:8px}
+.channel-link:focus-visible{outline:2px solid var(--o);outline-offset:2px}
+.channel-icon{width:18px;height:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px}
+.channel-icon svg{width:18px;height:18px;display:block}
+.channel-icon.linkedin svg{fill:#0A66C2}
+.channel-icon.youtube svg{fill:#FF0000}
+.channel-icon.facebook svg{fill:#1877F2}
+.channel-icon.instagram svg{fill:#E4405F}
+.channel-icon.twitter svg{fill:#000}
+.channel-icon.tiktok svg{fill:#000}
+.channel-icon.spotify svg{fill:#1DB954}
+.channel-icon.applepodcasts svg{fill:#832BC1}
+.channel-icon.podcast svg{fill:#832BC1}
+.channel-icon.threads svg{fill:#000}
+.channel-icon.substack svg{fill:#FF6719}
+.channel-icon.blog svg{fill:var(--txt2)}
+.channel-icon.website svg{fill:var(--txt)}
+.channel-icon.books svg{fill:var(--o)}
+.channel-icon.vimeo svg{fill:#1AB7EA}
+.channel-handle a,.channel-snippet a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--border-strong);transition:color 0.15s,border-color 0.15s}
+.channel-handle a:hover,.channel-snippet a:hover{color:var(--o);border-bottom-color:var(--o)}
+.channel-body{flex:1;min-width:0}
+.channel-head{display:flex;align-items:baseline;gap:8px;margin-bottom:2px;flex-wrap:wrap}
+.channel-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;color:var(--txt);letter-spacing:0.06em;text-transform:uppercase}
+.channel-handle{font-size:11px;color:var(--txt3);font-family:'Oswald',sans-serif;letter-spacing:0.04em}
+.channel-snippet{font-size:13px;color:var(--txt2);line-height:1.55}
+.channel-snippet em{font-family:'EB Garamond',Georgia,serif;font-style:italic;color:var(--txt)}
+.channel-snippet ul{list-style:none;padding:0;margin:0 0 6px 0}
+.channel-snippet ul li{position:relative;padding-left:14px;margin-bottom:3px}
+.channel-snippet ul li::before{content:"·";position:absolute;left:4px;top:-2px;color:var(--o);font-weight:700;font-size:16px;line-height:1}
+.channel-snippet ul li:last-child{margin-bottom:0}
+.channel-gap .channel-snippet ul li::before{color:var(--txt3)}
+
+.cta-block{background:var(--txt);border-radius:12px;padding:2.25rem 1.75rem;margin-top:2rem;text-align:center}
+.cta-eyebrow{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(232,90,12,0.9);font-family:'Oswald',sans-serif;font-weight:500;margin-bottom:0.75rem}
+.cta-headline{font-size:clamp(28px,5vw,44px);color:#fff;margin-bottom:0.6rem}
+.cta-sub{font-size:13.5px;color:rgba(255,255,255,0.65);line-height:1.75;max-width:480px;margin:0 auto 1.75rem}
+.cta-primary{display:inline-block;background:var(--o);color:#fff;padding:14px 30px;border-radius:8px;font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.15s,transform 0.1s}
+.cta-primary:hover{background:#c94d08}
+.cta-primary:active{transform:scale(0.98)}
+.cta-reply{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.08);font-size:13px;color:rgba(255,255,255,0.55);font-family:'EB Garamond',Georgia,serif;font-style:italic;line-height:1.6}
+
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:8px}
+.faq-q{font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;color:var(--txt);margin-bottom:6px;letter-spacing:0.02em}
+.faq-a{font-size:13px;color:var(--txt2);line-height:1.7}
+
+.site-footer{margin-top:3rem;padding:1.5rem 0 1rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.08em;color:var(--txt2)}
+.footer-links{display:flex;gap:1.25rem;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:var(--txt3);text-decoration:none;letter-spacing:0.06em;font-family:'Oswald',sans-serif;text-transform:uppercase}
+.footer-links a:hover{color:var(--o)}
+.footer-copy{font-size:11px;color:var(--txt3);width:100%}
+
+@media print{
+  body{background:#fff}
+  .topbar-cta,.cta-primary{display:none}
+}
+
+/* ── proof-led concept cards ────────────────────────────────────── */
+.scale-label{display:block;font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--o);margin-bottom:6px}
+.prec{margin-top:0.85rem;padding:0.95rem 1rem 0.85rem;border:1px solid var(--border);
+  border-radius:8px;background:var(--bg)}
+.prec-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--txt3);margin-bottom:0.7rem}
+.prec-spec{margin:0 0 0.9rem;display:grid;grid-template-columns:auto 1fr;gap:0.35rem 0.9rem}
+.prec-spec dt{font-family:'Oswald',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:0.07em;
+  text-transform:uppercase;color:var(--txt3);white-space:nowrap;padding-top:2px}
+.prec-spec dd{margin:0;font-size:13px;color:var(--txt2);line-height:1.6}
+.proj-video-embed{position:relative;width:100%;aspect-ratio:16/9;background:#141414;
+  border-radius:8px;overflow:hidden;margin-bottom:0.85rem}
+.proj-video-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block}
+.video-facade{cursor:pointer}
+.vf-thumb{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block}
+.vf-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:40px;
+  border-radius:9px;background:rgba(20,20,20,0.82);display:block}
+.vf-play:after{content:"";position:absolute;top:50%;left:52%;transform:translate(-50%,-50%);
+  border-style:solid;border-width:8px 0 8px 14px;border-color:transparent transparent transparent #fff}
+.video-facade:hover .vf-play{background:var(--o)}
+.vf-title{position:absolute;left:0;right:0;bottom:0;padding:0.5rem 0.7rem;font-size:11px;
+  font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#fff;
+  background:linear-gradient(to top,rgba(0,0,0,0.78),rgba(0,0,0,0))}
+.stat-strip-sm{margin:0 0 0.75rem!important}
+.stat-strip-sm .stat-num{font-size:26px}
+.stat-strip-sm .stat-cell{padding:0.65rem 0.5rem}
+.prec-note{margin:0;font-size:12px;color:var(--txt3);line-height:1.65}
+.prec-note a{color:var(--o);text-decoration:none;border-bottom:1px solid rgba(232,90,12,0.35)}
+.apply{margin-top:1rem;padding-left:0.95rem;border-left:2px solid var(--o)}
+.apply-label{font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--o);margin-bottom:0.42rem}
+.apply p{margin:0 0 0.45rem;font-size:13.5px;color:var(--txt2);line-height:1.7}
+.apply p:last-child{margin-bottom:0}
+.apply-names{font-size:12.5px!important;color:var(--txt3)!important}
+.apply-names strong{color:var(--txt);font-weight:500}
+@media(max-width:640px){.prec-spec{grid-template-columns:1fr;gap:0.15rem}
+  .prec-spec dt{padding-top:6px}}
+
+</style>
+</head>
+<body>
+
+<div id="tm-bar">
+  <span class="tm-pill">DRAFT v1 · EDITABLE</span>
+  <span class="tm-status" id="tm-status">Loading…</span>
+  <button id="tm-reset">Reset</button>
+  <button id="tm-pdf">Download PDF</button>
+  <button id="tm-export">Export Final Version</button>
+  <button id="tm-publish" class="tm-primary">Publish To Live Site</button>
+  <div class="tm-note">Edits save automatically as you type. When the page is ready, click <b>Publish To Live Site</b> and the main link updates straight away. <b>Export Final Version</b> downloads a locked copy if you want the file. <b>Download PDF</b> exports the deck exactly as you see it — choose "Save as PDF" as the destination.</div>
+</div>
+
+<style id="tm-edit-css">
+
+#tm-bar{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#161616;color:#fff;
+  font-family:'Oswald','DM Sans',system-ui,sans-serif;display:flex;flex-wrap:wrap;align-items:center;
+  gap:10px 16px;padding:10px 18px;box-shadow:0 -4px 24px rgba(0,0,0,0.18);font-size:13px;letter-spacing:0.02em}
+#tm-bar .tm-pill{background:#E85A0C;color:#fff;font-weight:600;font-size:10px;letter-spacing:0.12em;
+  text-transform:uppercase;padding:4px 10px;border-radius:3px;white-space:nowrap}
+#tm-bar .tm-status{color:#9a9a9a;font-size:11px}
+#tm-bar .tm-status.saved{color:#7BC99A}
+#tm-bar .tm-status.warn{color:#E8C060}
+#tm-bar .tm-note{width:100%;color:#8f8f8f;font-size:11px;line-height:1.5}
+#tm-bar button,#tm-bar .tm-btn{background:transparent;border:1px solid #3d3d3d;color:#e6e6e6;font-family:inherit;
+  font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:4px;
+  cursor:pointer;transition:background 0.15s,border-color 0.15s}
+#tm-bar button:hover,#tm-bar .tm-btn:hover{border-color:#E85A0C;color:#fff}
+#tm-bar .tm-btn{text-decoration:none;display:inline-block;line-height:1.35}
+#tm-bar button.tm-primary{background:#E85A0C;border-color:#E85A0C;color:#fff;font-weight:600}
+#tm-bar button.tm-primary:hover{background:#c94d08}
+@media print{
+  #tm-bar{display:none!important}
+  /* Chrome's print dialog defaults "Background graphics" OFF, which strips a
+     charcoal deck to white slides. This overrides the checkbox so the export
+     is correct no matter what the reviewer's dialog is set to. */
+  .slide{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  /* Editing affordances must never reach the PDF. */
+  .tm-edit{outline:none!important;background:transparent!important}
+  .tm-chip{display:none!important}
+  .idea-card.tm-idea{border:inherit!important;background:inherit!important}
+}
+.tm-edit{cursor:text;border-radius:2px;outline:1px dashed transparent;outline-offset:3px;
+  transition:outline-color 0.12s,background 0.12s}
+.tm-edit:hover{outline-color:rgba(232,90,12,0.35)}
+.tm-edit:focus{outline:2px solid #E85A0C;background:#FFFDF6;outline-offset:2px}
+.idea-card{position:relative}
+.idea-card.tm-idea{border:1px dashed #E85A0C!important;background:rgba(232,90,12,0.04)!important}
+.tm-chip{position:absolute;top:-9px;right:12px;background:#E85A0C;color:#fff;font-family:'Oswald',
+  'DM Sans',system-ui,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  padding:2px 8px;border-radius:3px;z-index:5}
+.channel-link{pointer-events:none}
+
+</style>
+<div id="wrap">
+
+  <!-- LOCKED — topbar. Do not edit. -->
+  <nav class="topbar">
+    <a class="topbar-brand" href="https://www.talexmedia.com" target="_blank">
+      <img class="topbar-logo"
+        src="https://static.wixstatic.com/media/3c6878_456d81e9cdb84e6c8bb3260ebfcc0523~mv2.png"
+        alt="Talex Media"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'"
+      />
+      <span class="topbar-name" style="display:none">TALEX MEDIA</span>
+    </a>
+    <div class="topbar-right">
+      <a class="topbar-cta" href="https://calendly.com/d/cx5j-mkt-yq2/strategy-call" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- LOCKED — Talex Mini VSL. ALWAYS embedded at the top of every strategy doc (audit_vsl_always). Do not remove. Swap the Vimeo id only if Tom supplies a prospect-specific cut. -->
+  <section class="vsl-intro">
+    <style>
+      .vsl-intro{margin:1.75rem 0 0}
+      .vsl-intro .vsl-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--o);margin-bottom:0.6rem;display:flex;align-items:center;gap:8px}
+      .vsl-intro .vsl-eyebrow::before{content:"\25B6";font-size:10px}
+      .vsl-intro .vsl-frame{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#000}
+      .vsl-intro .vsl-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    </style>
+    <div class="vsl-eyebrow">Watch First · A Short Intro From Tom</div>
+    <div class="vsl-frame">
+      <iframe src="https://player.vimeo.com/video/1199563685?h=9a37ee9528&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Talex Mini VSL"></iframe>
+    </div>
+  </section>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+
+  
+  <header class="hero">
+    <div class="brand-mark-row">
+      <div class="brand-logo-wrap">
+        <img src="assets/logo.png" alt="Wet Sounds logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline'" />
+        <span class="brand-logo-fallback" style="display:none">WS</span>
+      </div>
+      <div class="hero-step" style="margin-bottom:0">
+        <div class="step-pill">A Custom Strategy For Wet Sounds</div>
+        <span class="hero-eyebrow">Mark Tucker &middot; Prepared August 2026</span>
+      </div>
+    </div>
+    <h1 class="disp hero-title">A Custom Look<br/>At Your Video Content Presence</h1>
+    <div class="italic hero-tagline">This is a high-level view from Talex Media on where video fits into the dealer network, direct sales, and rider and boater community Wet Sounds is working to grow.</div>
+  </header>
+
+  
+  <div class="stat-strip">
+    
+    <div class="stat-cell">
+      <div class="stat-num">2005</div>
+      <div class="stat-label">Founded In Houston</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">130K</div>
+      <div class="stat-label">Instagram Followers</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">6,855</div>
+      <div class="stat-label">Instagram Posts</div>
+    </div>
+
+  </div>
+
+  
+  <div class="callout">
+    <p>"Engineered for performance in the most demanding environments."</p>
+    <div class="callout-attr">Wet Sounds &middot; <a href="https://www.wetsounds.com/" target="_blank" rel="noopener">wetsounds.com</a></div>
+  </div>
+
+  <!-- LOCKED — byline. Do not edit. -->
+  <div class="byline">
+    <div class="byline-avatar">
+      <img src="https://static.wixstatic.com/media/3c6878_f5b394fdd9fb45c98fc7e838f91ea231~mv2.jpg" alt="Tom Langan"
+           onerror="this.style.display='none'; this.parentElement.textContent='TL'" />
+    </div>
+    <div class="byline-body">
+      <div class="byline-name">Prepared by Tom Langan · Founder, Talex Media</div>
+      <div class="byline-sub">Author of <em>Legendeering</em></div>
+    </div>
+    <a class="byline-imdb" href="https://www.imdb.com/name/nm5209355/" target="_blank" rel="noopener" aria-label="Tom Langan on IMDb">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="IMDb"/>
+    </a>
+  </div>
+
+  <!-- Broadcaster trust strip, below the byline -->
+  <div class="trust-strip">
+    <img class="trust-logo discovery" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Discovery_Channel_-_Logo_2019.svg" alt="Discovery"/>
+    <img class="trust-logo nbc" src="https://upload.wikimedia.org/wikipedia/commons/e/ef/NBCUniversal_Logo.svg" alt="NBCUniversal"/>
+    <img class="trust-logo bbc" src="https://upload.wikimedia.org/wikipedia/commons/4/41/BBC_Logo_2021.svg" alt="BBC"/>
+    <span class="trust-emmy"><span class="n">2×</span><span class="t">Emmy Award Nominee</span></span>
+  </div>
+
+  <!--
+    OPENING — mixed.
+      - Paragraph 1: REWRITE the channel list and closing clause to fit the
+        prospect. Keep the shape: "Mark, I'm Tom Langan. I had a look at
+        what Wet Sounds has been putting into the world [context], and wanted
+        to send a short note from a production shop to a [what they are]."
+      - Paragraphs 2 and 3: LOCKED verbatim. Paragraph 3 stays bolded.
+      - Paragraph 4: first part LOCKED verbatim (through "...if we were
+        working together."). REWRITE only the final two sentences. Keep the
+        closing line plain — "Talex would just add the long-form video." No
+        "layer," no metaphors.
+  -->
+  <div class="section-block">
+    <p>Ben, I'm Tom Langan. I had a look at what Wet Sounds has been putting into the world, from the homepage to a YouTube channel that posts every couple of days, and wanted to send a short note from a production shop to a company that clearly knows its audience.</p>
+    <p>I've spent 25 years in video and television production as a Director of Photography, Producer, and Showrunner, earning two Emmy nominations and leading multi-million dollar productions for global broadcasters like the BBC, NBCUniversal, and Discovery filming all over the world from the Arctic Circle to sub-Saharan Africa.</p>
+    <p><strong>My job was, and still is, to make video that people actually want to watch.</strong></p>
+    <p>In order to do this (create audience first content that leaves people feeling good about supporting your brand and your mission) we need to always take your broader public footprint into account. What follows here is our honest take on what we saw, and where we'd start if we were working together.Wet Sounds is expert at building audio that keeps working in water, sun and vibration. Talex would just add the video.</p>
+  </div>
+
+  
+  <div class="whats-inside">
+    <h2 class="wi-heading">What's Inside</h2>
+    <div class="whats-inside-grid">
+      <a class="wi-card" href="#sec-surface">
+        <div class="wi-num">01</div>
+        <div class="wi-title">Where Your Video Lives Today</div>
+        <div class="wi-desc">Your website, YouTube, and LinkedIn, with an honest read</div>
+      </a>
+      <a class="wi-card" href="#sec-worlds">
+        <div class="wi-num">02</div>
+        <div class="wi-title">Three Ways In</div>
+        <div class="wi-desc">A flagship series, a run of tests, and a makeover series</div>
+      </a>
+      <a class="wi-card" href="#sec-strategy">
+        <div class="wi-num">03</div>
+        <div class="wi-title">Lead With Value</div>
+        <div class="wi-desc">The Legendeering framework</div>
+      </a>
+      <a class="wi-card" href="#sec-films">
+        <div class="wi-num">04</div>
+        <div class="wi-title">Past Talex Films</div>
+        <div class="wi-desc">Three projects across three industries</div>
+      </a>
+      <a class="wi-card" href="#sec-faq">
+        <div class="wi-num">FAQ</div>
+        <div class="wi-title">A Few Questions</div>
+        <div class="wi-desc">What you might be wondering</div>
+      </a>
+    </div>
+  </div>
+
+  <hr class="rule-orange"/>
+
+  
+  <div class="section-intro" id="sec-surface">
+    <div class="section-intro-row">
+      <span class="sec-pill-orange">01</span>
+      <span class="section-eyebrow">Where You Show Up</span>
+    </div>
+    <h2 class="section-title">Where Your Video Lives Today</h2>
+    <p class="section-subtitle">The three surfaces video would live on: your website, YouTube, and Instagram, with an honest read on each.</p>
+  </div>
+
+  <div class="channel-grid">
+    <div class="channel-card">
+      <a class="channel-link" href="https://www.wetsounds.com/" target="_blank" rel="noopener" aria-label="Visit Website"></a>
+      <div class="channel-icon website"></div>
+      <div class="channel-body">
+        <div class="channel-head">
+          <span class="channel-name">Website</span>
+          <span class="channel-handle">wetsounds.com</span>
+        </div>
+        <div class="channel-snippet">
+          <ul><li>The store sells marine, powersports, motorcycle, Jeep and outdoor audio directly, and a dealer locator points buyers to the dealer network as well.</li><li>The site promises free ground shipping over $99, a two-year limited warranty and US-based support from the Texas headquarters.</li></ul>
+          <a class="source-link" href="https://www.wetsounds.com/" target="_blank" rel="noopener">wetsounds.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="channel-card">
+      <a class="channel-link" href="https://www.youtube.com/@WetSoundsMarineAudio" target="_blank" rel="noopener" aria-label="Visit YouTube"></a>
+      <div class="channel-icon youtube"></div>
+      <div class="channel-body">
+        <div class="channel-head">
+          <span class="channel-name">YouTube</span>
+          <span class="channel-handle">@WetSoundsMarineAudio</span>
+        </div>
+        <div class="channel-snippet">
+          <ul><li>The channel holds 165 videos and is still publishing through 2026. Most of the recent uploads are installation walkthroughs and product explainers.</li><li><em>How To Install Wet Sounds Harley-Davidson Audio Kits</em> runs 30 minutes 13 seconds and has 261 views. <em>Wet Sounds | Motorcycle Audio | CMA Connected</em> runs 30 minutes 11 seconds and has 17 views.</li></ul>
+          <a class="source-link" href="https://www.youtube.com/@WetSoundsMarineAudio" target="_blank" rel="noopener">youtube.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="channel-card">
+      <a class="channel-link" href="https://www.instagram.com/wetsounds/" target="_blank" rel="noopener" aria-label="Visit Instagram"></a>
+      <div class="channel-icon instagram"></div>
+      <div class="channel-body">
+        <div class="channel-head">
+          <span class="channel-name">Instagram</span>
+          <span class="channel-handle">@wetsounds</span>
+        </div>
+        <div class="channel-snippet">
+          <ul><li>The account has 130,000 followers and 6,855 posts, which makes it far and away your largest audience and your most consistent publishing habit.</li><li>The gear appears on boats, towers, Harleys and UTVs in the feed, so the audience is already used to seeing the products out in the world.</li></ul>
+          <a class="source-link" href="https://www.instagram.com/wetsounds/" target="_blank" rel="noopener">instagram.com</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-intro" id="sec-worlds">
+    <div class="section-intro-row">
+      <span class="sec-pill-orange">02</span>
+      <span class="section-eyebrow">Three Concepts For Wet Sounds</span>
+    </div>
+    <h2 class="section-title">Three Opportunities to Grow Your Audience</h2>
+    <p class="section-subtitle">One flagship documentary series, one short run of real tests, and one makeover series. Each one names the format, the show it borrows from, and a company that has already made it work. We film and produce at every level, so where you start is up to you.</p>
+  </div>
+
+  <div class="ideas-grid">
+
+    <div class="idea-card idea-card-featured">
+      <div class="idea-num">01</div>
+      <div class="idea-body">
+        <div class="scale-label">Long-Form Episodic &middot; Flagship, ongoing</div>
+        <div class="idea-title">A returning documentary series</div>
+        <div class="prec"><div class="prec-label">The format, and a company that has already run it</div><dl class="prec-spec"><dt>Format</dt><dd>Docuseries. One real person an episode, telling their own story, stayed with long enough that a stranger cares how it turns out.</dd><dt>Entertainment reference</dt><dd><em>Parts Unknown</em> (the Anthony Bourdain series that visited one place per episode and let the people who live there tell its story)</dd><dt>A company that did it</dt><dd>YETI, <em>YETI Presents</em>. A cooler company built a library of short documentaries about the people who use its gear, each film about one person and one story from their life, and never about the product.</dd><dt>Episode length</dt><dd>A median of about 8 minutes, with the most watched film running 28 minutes</dd></dl><div class="proj-video-embed video-facade" data-yt="OmrufRLGdAk" role="button" tabindex="0" aria-label="Play video: YETI Presents, A Thousand Casts"><img class="vf-thumb" src="https://i.ytimg.com/vi/OmrufRLGdAk/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="vf-play" aria-hidden="true"></span><span class="vf-title">A Thousand Casts &middot; YETI Presents</span></div><div class="stat-strip stat-strip-sm"><div class="stat-cell"><div class="stat-num">1,344,426</div><div class="stat-label">Views On The Top Film</div></div><div class="stat-cell"><div class="stat-num">90</div><div class="stat-label">Films In The Library</div></div><div class="stat-cell"><div class="stat-num">37.6M</div><div class="stat-label">Views Across The Library</div></div></div><p class="prec-note">YETI has published 90 of these films. The one above runs 28 minutes and is the most watched of all of them. Runtime and view count read from YouTube on 24 August 2026. <a href="https://www.youtube.com/watch?v=OmrufRLGdAk" target="_blank" rel="noopener">Watch the film</a></p></div>
+        <div class="apply"><div class="apply-label">How Wet Sounds could use it</div><p>The same format could be built around the people who install your gear, or the riders and boaters who live with it every weekend. Each episode would stay with one person for a full day on the water or the trail, and the value is that your gear earns its place in the background instead of being explained.</p></div>
+        <div class="why-block"><div class="why-label">Why long-form episodic wins over time</div><div class="why-list"><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><span><strong>One-off videos are not appointment content.</strong> A returning series gives people a reason to come back for the next person's story.</span></div><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span><span><strong>Trust builds in small moments repeated over time,</strong> and every episode is another chance to earn it.</span></div><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><strong>Start with story, follow with facts.</strong> One person's account tells the audience more than a page of claims ever could.</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-num">02</div>
+      <div class="idea-body">
+        <div class="scale-label">Short-Form Episodic &middot; One test an episode, under 2 minutes</div>
+        <div class="idea-title">A short series built on one question</div>
+        <div class="prec"><div class="prec-label">The format, and a company that has already run it</div><dl class="prec-spec"><dt>Format</dt><dd>Product test. The same question every episode, a new thing to test each time, and an answer by the end of it.</dd><dt>Entertainment reference</dt><dd><em>MythBusters</em> (the series that takes one claim an episode and tests it for real rather than arguing about it)</dd><dt>A company that did it</dt><dd>Blendtec, <em>Will It Blend?</em> The founder put an iPhone in one of his own blenders and pressed the button. The first campaign reportedly cost $50, and the series ran to more than 120 videos.</dd><dt>Episode length</dt><dd>1 minute 37 seconds for the most watched film</dd></dl><div class="proj-video-embed video-facade" data-yt="qg1ckCkm8YI" role="button" tabindex="0" aria-label="Play video: Will It Blend, iPhone"><img class="vf-thumb" src="https://i.ytimg.com/vi/qg1ckCkm8YI/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="vf-play" aria-hidden="true"></span><span class="vf-title">iPhone &middot; Will It Blend?</span></div><div class="stat-strip stat-strip-sm"><div class="stat-cell"><div class="stat-num">13,129,655</div><div class="stat-label">Views On The Top Film</div></div><div class="stat-cell"><div class="stat-num">120+</div><div class="stat-label">Videos In The Series</div></div><div class="stat-cell"><div class="stat-num">$50</div><div class="stat-label">Cost Of The First One</div></div></div><p class="prec-note">Blendtec reports sales up 700% and over 219 million views across the run, which are the company's own figures. The format works because the question is the same every time and the answer is worth waiting for. Runtime and view count read from YouTube on 24 August 2026. <a href="https://www.youtube.com/watch?v=qg1ckCkm8YI" target="_blank" rel="noopener">Watch the film</a></p></div>
+        <div class="apply"><div class="apply-label">How Wet Sounds could use it</div><p>This would employ a similar format, where each episode takes one claim you already make and tests it for real. That could be a tower speaker in the spray behind a wake boat, or a Harley kit ridden through a rainstorm. The value is that a buyer gets the answer they were already looking for, without anyone having to make the claim again.</p></div>
+        <div class="why-block"><div class="why-label">Why a short run of real tests works</div><div class="why-list"><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><span><strong>Entertainment is value given first.</strong> Nobody passes around a spec sheet, but people watch a claim get tested for real.</span></div><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span><span><strong>Answer the question they already have.</strong> A buyer is trying to work out whether the gear survives the conditions, and a test answers that better than a paragraph can.</span></div><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><strong>The world resets every episode.</strong> There is another product and another condition to test, so the series never runs out.</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="idea-card">
+      <div class="idea-num">03</div>
+      <div class="idea-body">
+        <div class="scale-label">Short-Form Episodic &middot; Transformation, 3 to 5 minutes</div>
+        <div class="idea-title">A makeover series with a reveal</div>
+        <div class="prec"><div class="prec-label">The format, and a company that has already run it</div><dl class="prec-spec"><dt>Format</dt><dd>Makeover. Something that is not working at the start, the people who fix it in the middle, and a reveal at the end.</dd><dt>Entertainment reference</dt><dd><em>Queer Eye</em> (a series where a team arrives, changes something for one person, and ends on the moment that person sees it)</dd><dt>A company that did it</dt><dd>IKEA USA are producing <em>IKEA Home Tour</em>, where a squad of their own employees travels to a real family's home and makes over a room. They sent staff rather than celebrities, so the result looks like something a viewer could copy.</dd><dt>Episode length</dt><dd>3 to 5 minutes per episode</dd></dl><div class="proj-video-embed video-facade" data-yt="9vwtjTTPbLs" role="button" tabindex="0" aria-label="Play video: IKEA Home Tour, family bedroom makeover"><img class="vf-thumb" src="https://i.ytimg.com/vi/9vwtjTTPbLs/hqdefault.jpg" alt="" onerror="this.style.display='none'"><span class="vf-play" aria-hidden="true"></span><span class="vf-title">Family Bedroom Makeover &middot; IKEA Home Tour</span></div><div class="stat-strip stat-strip-sm"><div class="stat-cell"><div class="stat-num">4,081,170</div><div class="stat-label">Views, One Episode</div></div><div class="stat-cell"><div class="stat-num">245</div><div class="stat-label">Videos In The Series</div></div><div class="stat-cell"><div class="stat-num">59.6M</div><div class="stat-label">Views Across The Playlist</div></div></div><p class="prec-note">IKEA's own award entry claims store sales up an average of 4.1% during the weeks the first season aired, which is the company's own figure. Runtime and view count read from YouTube on 24 August 2026. <a href="https://www.youtube.com/watch?v=9vwtjTTPbLs" target="_blank" rel="noopener">Watch the episode</a></p></div>
+        <div class="apply"><div class="apply-label">How Wet Sounds could use it</div><p>The same format could be built around a boat that has never sounded right, or a UTV going in for its first upgrade. Each episode would end on the reveal and the first time the owner hears the system, and the value is that every install becomes a short story with an ending worth waiting for.</p></div>
+        <div class="why-block"><div class="why-label">Why a makeover series works</div><div class="why-list"><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><span><strong>Entertainment is value given first.</strong> Nobody shares a product page, but people watch a reveal to find out how it turned out.</span></div><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span><span><strong>Answer the question they already have.</strong> A buyer wants to know what the upgrade actually sounds like, and a reveal shows it.</span></div><div class="why-item"><span class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><strong>The world resets every episode.</strong> There is always another boat, another rig and another owner, so the series never runs out.</span></div></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="rule-orange"/>
+
+  <!--
+    LOCKED — Section 03, the Legendeering framework. It now lands AFTER the
+    concepts: it is the method behind the ideas the reader just saw. Do NOT
+    edit the framework text or the five directives. The ONLY line to rewrite
+    is the last paragraph: name what the prospect is expert in, what Talex
+    would add, and point BACK to the concepts above (they came out of this
+    method). Keep that line plain (no "layer," no "ride on," no metaphors).
+  -->
+  <div class="section-intro" id="sec-strategy">
+    <div class="section-intro-row">
+      <span class="sec-pill-orange">03</span>
+      <span class="section-eyebrow">Lead With Value</span>
+    </div>
+    <h2 class="section-title">The Legendeering Framework</h2>
+    <p class="section-subtitle">The methodology behind every Talex production, and behind the three concepts above. Five directives, one core principle.</p>
+  </div>
+
+  <div class="section-block">
+    <p>Legendeering is Talex's proprietary strategy. The core principle is straightforward: lead with value, always. The brand earns trust by giving without expectation, and that trust grows over time because people keep choosing to watch.</p>
+    <p>Five directives drive it:</p>
+    <ul class="dir-list">
+      <li class="dir-item"><span class="dir-icon"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span><span><strong>Give Without Expectation.</strong> Value delivered without strings. The kind of generosity that builds loyalty money cannot buy.</span></li>
+      <li class="dir-item"><span class="dir-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><span><strong>Be Relentlessly Authentic.</strong> Say true things. Show real work. Speak like a human being.</span></li>
+      <li class="dir-item"><span class="dir-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><strong>It's Not About You. It's About Them.</strong> The audience has to come first. It's all about their wants and needs and making something they will choose to watch.</span></li>
+      <li class="dir-item"><span class="dir-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span><strong>Start With Story, Follow With Facts.</strong> Story gives information shape, context, and emotional weight. Facts alone rarely move people.</span></li>
+      <li class="dir-item"><span class="dir-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><span><strong>Consistency Is Key.</strong> Trust is built in moments, repeated over time.</span></li>
+    </ul>
+    <p>Wet Sounds is expert at building audio that keeps working in water, sun and vibration. Talex would add the video: a documentary series, a run of real tests, and a makeover series, each one built on the method above. The three concepts came straight out of it.</p>
+  </div>
+
+  <!-- LOCKED — credentials row. Do not edit. -->
+  <div class="cred-row">
+    <span class="cred-chip">2x Emmy Nominated</span>
+    <span class="cred-chip">25 Years Production</span>
+    <span class="cred-chip">100+ Hours Distributed Globally</span>
+    <span class="cred-chip">BBC · NBC · Discovery · ABC · Netflix</span>
+  </div>
+
+  <hr class="rule-orange"/>
+
+  <!-- LOCKED — Section 04, Past Talex Films. The three case studies are
+       verbatim. Do not edit. (Reorder the three if a different one is more
+       relevant to the prospect's industry, but do not rewrite the copy.) -->
+  <div class="section-intro" id="sec-films">
+    <div class="section-intro-row">
+      <span class="sec-pill-dark">04</span>
+      <span class="section-eyebrow">A Few Films Talex Has Made</span>
+    </div>
+    <h2 class="section-title">Three Projects Across Three Industries</h2>
+    <p class="section-subtitle">Same craft, same methodology, three very different jobs.</p>
+  </div>
+
+  <div class="case-card">
+    <div class="cs-label">Case Study 01 · Enterprise</div>
+    <div class="cs-name">Resorts World New York City</div>
+    <div class="cs-stat-strip">
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">$5.5B</div>
+        <div class="cs-stat-label">Site development investment</div>
+      </div>
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">10+</div>
+        <div class="cs-stat-label">Video pieces produced</div>
+      </div>
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">Dec '25</div>
+        <div class="cs-stat-label">Gaming license awarded</div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Challenge</div>
+      <div class="cs-section-body">In 2025, Resorts World International launched a high-stakes public campaign to secure a New York City commercial gaming license and advance their $5.5B investment to transform their existing casino at Aqueduct Racetrack into a full-scale integrated resort. Their communications needed to be credible, compelling, and precise.</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Approach</div>
+      <div class="cs-section-body">Talex Media produced more than 10 distinct pieces of video content spanning community impact narratives, stakeholder communications, and public-facing advocacy. Each piece was built on a story-first foundation designed to move people, not just inform them.</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Result</div>
+      <div class="cs-section-body">On December 15, 2025, the NY State Gaming Commission awarded Resorts World NYC one of only three downstate commercial gaming licenses. Talex Media's content supported one of the most consequential licensing decisions in NYC's recent history.</div>
+    </div>
+    <div class="cs-video-embed">
+      <iframe src="https://player.vimeo.com/video/1197837461?h=b1f296a8c1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen loading="lazy" title="Resorts World NYC · Featured Video"></iframe>
+    </div>
+    <div class="cs-footer-meta">NYC Gaming License Awarded Dec 15, 2025 · 10+ Videos Produced · $5.5B Investment · Spring 2026 Opening</div>
+  </div>
+
+  <div class="case-card">
+    <div class="cs-label">Case Study 02 · Growth Brand</div>
+    <div class="cs-name">Sobo & Sobo LLP</div>
+    <div class="cs-stat-strip">
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">2020</div>
+        <div class="cs-stat-label">Partnership begin date</div>
+      </div>
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">7</div>
+        <div class="cs-stat-label">States with Sobo offices</div>
+      </div>
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">5+</div>
+        <div class="cs-stat-label">Years of ongoing campaigns</div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Challenge</div>
+      <div class="cs-section-body">In 2020, Sobo & Sobo, a New York-based personal injury law firm, engaged Talex Media. They needed commercial video campaigns that could anchor their brand, differentiate them in a competitive legal market, and fuel their growth ambitions across new markets.</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Approach</div>
+      <div class="cs-section-body">Since 2020, Talex Media has produced all of Sobo & Sobo's commercial video campaigns, an ongoing, multi-year embedded partnership bringing brand consistency, strategic communication, and production quality to every new market they enter.</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Result</div>
+      <div class="cs-section-body">Since the partnership began, Sobo & Sobo has grown from a NY-focused firm into a multi-state legal practice with offices in NY, CT, NJ, IL, OH, PA, and WI. Talex Media's campaigns have accompanied every stage of that expansion.</div>
+    </div>
+    <div class="cs-video-embed">
+      <iframe src="https://player.vimeo.com/video/1197837545?h=26cd419847" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen loading="lazy" title="Sobo &amp; Sobo · Featured Video"></iframe>
+    </div>
+    <div class="cs-footer-meta">5+ Year Partnership · All Commercial Campaigns · 7 States: NY, CT, NJ, IL, OH, PA, WI</div>
+  </div>
+
+  <div class="case-card">
+    <div class="cs-label">Case Study 03 · Nonprofit</div>
+    <div class="cs-name">Elizabeth Seton Children's</div>
+    <div class="cs-stat-strip">
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">96</div>
+        <div class="cs-stat-label">Beds in new young adult center</div>
+      </div>
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">$156M</div>
+        <div class="cs-stat-label">Project investment</div>
+      </div>
+      <div class="cs-stat-cell">
+        <div class="cs-stat-num">2025</div>
+        <div class="cs-stat-label">Year of groundbreaking</div>
+      </div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Challenge</div>
+      <div class="cs-section-body">In 2020, Elizabeth Seton Children's launched a capital campaign to fund a $156 million young adult care facility for patients aging out of their pediatric program. They needed video content that would inspire donors, communicate urgency, and sustain momentum across a multi-year campaign.</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Approach</div>
+      <div class="cs-section-body">Talex Media produced multiple pieces of informational, inspirational, and commercial fundraising content across the campaign lifecycle. Each piece was designed to give donors a genuine connection to the mission and the people it serves, not just a request for money.</div>
+    </div>
+    <div class="cs-section">
+      <div class="cs-section-label">The Result</div>
+      <div class="cs-section-body">In August 2025, Elizabeth Seton Children's broke ground on their new 96-bed young adult center in White Plains, NY, the first standalone facility of its kind in the United States, providing care for young adults aged 18 to 35 with complex medical needs. The facility is expected to open in January 2028.</div>
+    </div>
+    <div class="cs-video-embed">
+      <iframe src="https://player.vimeo.com/video/1197837295?h=1a1b3c715b" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen loading="lazy" title="Elizabeth Seton Children's · Featured Video"></iframe>
+    </div>
+    <div class="cs-footer-meta">First standalone young adult complex-care facility in the U.S. · 96 beds · $156M · Groundbreaking Aug 2025</div>
+  </div>
+
+  <!-- LOCKED — credentials row. Do not edit. -->
+  <div class="cred-row">
+    <span class="cred-chip">2x Emmy Nominated</span>
+    <span class="cred-chip">25 Years Experience</span>
+    <span class="cred-chip">100+ Hours Distributed Globally</span>
+    <span class="cred-chip">BBC · Discovery · NBC Universal</span>
+  </div>
+
+  <hr class="rule-orange"/>
+
+  <!-- LOCKED — CTA block. Do not edit. (audit_cta_defaults, locked 2026-05-07) -->
+  <div class="cta-block">
+    <div class="cta-eyebrow">An Intro Call With Our Team</div>
+    <h2 class="disp cta-headline">Let's Connect</h2>
+    <p class="cta-sub">A short call to walk through what's in this audit, answer whatever you want to ask, and find out whether there's a fit. Nothing is sold on the call.</p>
+    <a class="cta-primary" href="https://calendly.com/d/cx5j-mkt-yq2/strategy-call" target="_blank" rel="noopener">Book A Call With Our Team →</a>
+    <div class="cta-reply">Or just reply on LinkedIn and tell me what you actually thought. Happy to send you a copy of <em>Legendeering</em> if you'd like to read the longer version of the philosophy in section 03.</div>
+  </div>
+
+  <hr class="rule-orange"/>
+
+  <!-- LOCKED — FAQ. Verbatim across every audit. The ONLY substitution
+       allowed is Wet Sounds in the answer to "How custom is this audit?"
+       (audit_faq_locked rule).
+       "Do you only work with certain industries?" added 2026-08-21. The answer
+       is Tom’s own final wording, verbatim. Do not reword. -->
+  <div class="section-intro" id="sec-faq">
+    <div class="section-intro-row">
+      <span class="sec-pill-dark">FAQ</span>
+      <span class="section-eyebrow">A Few Questions You Might Have</span>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What does a call with Talex look like?</div>
+    <div class="faq-a">Fifteen minutes. We walk through this document, I answer whatever you want to ask, and we find out if there's a fit. Nothing is sold on the call.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How custom is this audit?</div>
+    <div class="faq-a">Everything in this document is based on your actual public presence. I don't send the same deck to different companies, this one was prepared specifically for Wet Sounds.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What happens after the call?</div>
+    <div class="faq-a">If there's a fit, we send a formal proposal tailored to your team, your community, and the goals you described. If not, you leave with a clearer picture of your content opportunity and I wish you well.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How is your approach different from a typical video agency?</div>
+    <div class="faq-a">We start with the community, not the camera. Before any production decision, we map who you're speaking to, what they need from you, and what shift we're trying to produce in them. Format and craft follow from there.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Do you only work with certain industries?</div>
+    <div class="faq-a">At Talex, we don’t limit our focus to one vertical or industry, because industry-specific thinking leads to uniform outputs and our goal is to help our clients stand out from their competition.<br><br>Ultimately, a cross-disciplinary perspective forces innovation and creates more original ideas. Because we are not tied to the conventions of one industry, we can do a better job of helping you create content authentic to your brand and valuable to your audience. So you stand out and remain top of mind for your customers.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">We already have a marketing team. Why should we work with Talex?</div>
+    <div class="faq-a">Perfect, that's actually how we prefer to work. Talex Media isn't a marketing agency. We're a video production company in the documentary and broadcast tradition. A strong marketing team brings audience clarity, channel strategy, and distribution. We bring the films that give them something worth distributing: customer hero pieces, episodic series, founder content built to a broadcast standard.</div>
+  </div>
+
+  <!-- LOCKED — footer. Swap only Wet Sounds and the month/year. -->
+  <footer class="site-footer">
+    <span class="footer-brand">Talex Media</span>
+    <div class="footer-links">
+      <a href="https://www.talexmedia.com" target="_blank">talexmedia.com</a>
+      <a href="mailto:solutions@talexmedia.com">solutions@talexmedia.com</a>
+      <a href="https://calendly.com/d/cx5j-mkt-yq2/strategy-call" target="_blank">Book a Call</a>
+    </div>
+    <div class="footer-copy">© 2026 Talex Media LLC · A Custom Strategy prepared for Wet Sounds · {{MONTH YEAR}}</div>
+  </footer>
+
+</div>
+
+<!-- LOCKED — iframe-height script. Do not edit. -->
+<script>
+function poke(){
+  try { window.parent.postMessage({ type:"wix-iframe-height", height: document.documentElement.scrollHeight }, "*"); } catch(e){}
+}
+window.addEventListener("load", function(){
+  if (window.ResizeObserver) new ResizeObserver(poke).observe(document.body);
+  poke();
+});
+</script>
+
+
+<script>
+(function(){
+  function load(el){
+    if(el.getAttribute("data-loaded")) return;
+    var id = el.getAttribute("data-yt");
+    var f = document.createElement("iframe");
+    f.setAttribute("src","https://www.youtube-nocookie.com/embed/"+id+"?autoplay=1&rel=0");
+    f.setAttribute("title","Video player");
+    f.setAttribute("allow","accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+    f.setAttribute("allowfullscreen","");
+    el.innerHTML = ""; el.appendChild(f); el.setAttribute("data-loaded","1");
+  }
+  document.querySelectorAll(".video-facade").forEach(function(el){
+    el.addEventListener("click", function(){ load(el); });
+    el.addEventListener("keydown", function(ev){
+      if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); load(el); }
+    });
+  });
+})();
+</script>
+<script id="tm-edit-js">
+
+(function(){
+  var DOC_KEY = 'wet-sounds-review-bea3d492';
+  var BUILD_ID = 'c5df70f3d2da';
+  // The browser-local draft is keyed to the BUILD, not just the doc. When a doc is
+  // rebuilt and redeployed under the same doc key, an old localStorage draft would
+  // otherwise repaint itself over the new page a moment after load, which looks
+  // exactly like the deploy having failed. Keying on the build makes a stale draft
+  // unreachable, and any draft from a previous build is cleared on load.
+  var LOCAL_KEY = 'talex-edit:' + DOC_KEY + ':' + BUILD_ID;
+  try {
+    for (var i = localStorage.length - 1; i >= 0; i--) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf('talex-edit:' + DOC_KEY) === 0 && k !== LOCAL_KEY) {
+        localStorage.removeItem(k);
+      }
+    }
+  } catch(e){}
+  // Carousel decks (tools/deck-unbundle.mjs) carry their text in inline-styled
+  // spans inside .slide sections, so the tag list below would miss most of a
+  // deck. Scoped to .slide so a bare span stays uneditable in strategy docs.
+  var EDIT_SEL = '.scale-label, .prec-spec dd, .apply-label, .slide span, .slide em, p, li, h1, h2, h3, h4, .idea-title, .idea-desc, .idea-tag, .why-label, .why-item, .stat-num, .stat-label, .channel-name, .channel-handle, .channel-snippet, .cs-section-label, .cs-section-body, .cs-stat-num, .cs-stat-label, .cs-name, .cs-footer-meta, .cred-chip, .faq-q, .faq-a, .cta-eyebrow, .cta-headline, .cta-sub, .cta-reply, .callout p, .callout-attr, .hero-eyebrow, .hero-title, .hero-tagline, .section-title, .section-subtitle';
+  var wrap = document.querySelector('#wrap');
+  var statusEl = document.getElementById('tm-status');
+  var saveTimer = null;
+  // Only a real edit makes the page dirty. Without this, merely opening the doc
+  // and navigating away wrote a draft on unload, which is how a stale view got
+  // promoted into the cloud and then restored on every later visit.
+  var dirty = false;
+  window.__talexDocKey = DOC_KEY;
+  window.__tmSkipSave = false;
+
+  function setStatus(text, cls){
+    if(!statusEl) return;
+    statusEl.textContent = text;
+    statusEl.className = 'tm-status' + (cls ? ' ' + cls : '');
+  }
+
+  function initEdit(){
+    if(!wrap) return;
+    var els = Array.prototype.slice.call(wrap.querySelectorAll(EDIT_SEL));
+    els = els.filter(function(el){
+      return !els.some(function(p){ return p !== el && p.contains(el); });
+    });
+    els.forEach(function(el){
+      if(el.getAttribute('data-tmedit') === '1') return;
+      el.setAttribute('contenteditable', 'true');
+      el.setAttribute('data-tmedit', '1');
+      el.classList.add('tm-edit');
+      // Paste as plain text. Pasting from Google Docs or Word otherwise carries
+      // inline font-family/color styles that beat the page CSS and, on dark
+      // blocks, render black text on a dark background.
+      el.addEventListener('paste', function(ev){
+        ev.preventDefault();
+        var cb = ev.clipboardData || window.clipboardData;
+        var txt = cb ? cb.getData('text/plain') : '';
+        if(!txt) return;
+        if(document.queryCommandSupported && document.queryCommandSupported('insertText')){
+          document.execCommand('insertText', false, txt);
+        } else {
+          var sel = window.getSelection();
+          if(!sel || !sel.rangeCount) return;
+          sel.deleteFromDocument();
+          sel.getRangeAt(0).insertNode(document.createTextNode(txt));
+          sel.collapseToEnd();
+        }
+      });
+    });
+    wrap.querySelectorAll('.idea-card').forEach(function(card){
+      if(card.querySelector('.tm-chip')) return;
+      card.classList.add('tm-idea');
+      var chip = document.createElement('span');
+      chip.className = 'tm-chip';
+      chip.textContent = 'EDITABLE';
+      card.appendChild(chip);
+    });
+  }
+
+  function applyDraft(html){
+    if(html && wrap && html !== wrap.innerHTML){ wrap.innerHTML = html; }
+    initEdit();
+  }
+
+  function save(){
+    if(!wrap) return Promise.resolve();
+    var html = wrap.innerHTML;
+    try { localStorage.setItem(LOCAL_KEY, html); } catch(e){}
+    setStatus('Saving…');
+    return saveDraft(html).then(function(){
+      setStatus('Saved to cloud just now', 'saved');
+    }).catch(function(){
+      setStatus('Cloud offline — kept in this browser only', 'warn');
+    });
+  }
+
+  function scheduleSave(){
+    setStatus('Saving…');
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(save, 250);
+  }
+
+  
+  function saveDraft(html){
+    return fetch(DB_URL + '/drafts/' + DOC_KEY + '.json', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({html: html, build: BUILD_ID})
+    }).then(function(r){ if(!r.ok) throw new Error('http ' + r.status); });
+  }
+  function resetDraft(){
+    try { localStorage.removeItem(LOCAL_KEY); } catch(e){}
+    return fetch(DB_URL + '/drafts/' + DOC_KEY + '.json', { method: 'DELETE' }).catch(function(){});
+  }
+
+  
+  var DB_URL = 'https://talex-media-default-rtdb.firebaseio.com';
+  var done = false;
+  function finish(html){
+    if(done) return; done = true;
+    applyDraft(html);
+    setStatus(html ? 'Saved draft restored from cloud' : 'Edits save automatically', 'saved');
+  }
+  var t = setTimeout(function(){ finish(localStorage.getItem(LOCAL_KEY)); }, 4000);
+  fetch(DB_URL + '/drafts/' + DOC_KEY + '.json')
+    .then(function(r){ if(!r.ok) throw new Error('http ' + r.status); return r.json(); })
+    .then(function(v){
+      clearTimeout(t);
+      // A draft saved against an older build must NOT be restored: it would
+      // silently paint the previous version over newer content and the reader
+      // would never know the page had moved on. Legacy drafts saved as a bare
+      // string carry no build id, so those still restore as before.
+      if(v && typeof v === 'object' && v.html){
+        if(v.build && v.build !== BUILD_ID){
+          done = true;
+          initEdit();
+          setStatus('This page was updated after your last edit. Your older draft was not applied.', 'warn');
+          return;
+        }
+        finish(v.html);
+        return;
+      }
+      finish((typeof v === 'string' && v) ? v : localStorage.getItem(LOCAL_KEY));
+    })
+    .catch(function(){
+      clearTimeout(t);
+      finish(localStorage.getItem(LOCAL_KEY));
+    });
+
+
+  if(wrap){
+    wrap.addEventListener('input', scheduleSave);
+    window.addEventListener('beforeunload', function(){
+      if(window.__tmSkipSave) return;
+      if(!dirty) return;          // nothing was typed; never write a draft
+      clearTimeout(saveTimer); save();
+    });
+  }
+
+  document.getElementById('tm-reset').addEventListener('click', function(){
+    if(!confirm('Reset this page back to the original text? All saved edits will be lost.')) return;
+    window.__tmSkipSave = true;
+    dirty = false;
+    try { localStorage.removeItem(LOCAL_KEY); } catch(e){}
+    resetDraft();
+    location.reload();
+  });
+
+  // Print the CURRENT DOM, so unsaved edits are in the PDF too. The page's
+  // own print CSS handles page size, margins, the toolbar and (via
+  // print-color-adjust:exact) the backgrounds Chrome would otherwise drop.
+  var pdfBtn = document.getElementById('tm-pdf');
+  if(pdfBtn){
+    pdfBtn.addEventListener('click', function(){
+      // Flush any pending debounce first so the cloud copy matches the PDF.
+      clearTimeout(saveTimer);
+      Promise.resolve(save()).then(function(){
+        setStatus('Choose "Save as PDF" as the destination', 'saved');
+        window.print();
+      });
+    });
+  }
+
+  function exportFinal(){
+    var clone = document.documentElement.cloneNode(true);
+    var bar = clone.querySelector('#tm-bar'); if(bar) bar.parentNode.removeChild(bar);
+    var css = clone.querySelector('#tm-edit-css'); if(css) css.parentNode.removeChild(css);
+    var scr = clone.querySelector('#tm-edit-js'); if(scr) scr.parentNode.removeChild(scr);
+    clone.querySelectorAll('[contenteditable]').forEach(function(el){
+      el.removeAttribute('contenteditable');
+      el.removeAttribute('data-tmedit');
+      el.classList.remove('tm-edit');
+    });
+    clone.querySelectorAll('.tm-chip').forEach(function(el){ el.parentNode.removeChild(el); });
+    clone.querySelectorAll('.tm-idea').forEach(function(el){ el.classList.remove('tm-idea'); });
+    var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+    var blob = new Blob([html], {type:'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'wet-sounds-review-strategy-FINAL.html';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ a.remove(); URL.revokeObjectURL(a.href); }, 500);
+    return html;
+  }
+  window.__talexExportFinal = exportFinal;
+
+  document.getElementById('tm-export').addEventListener('click', function(){
+    setStatus('Exporting final version…');
+    try { exportFinal(); setStatus('Final exported — check your downloads', 'saved'); }
+    catch(e){ setStatus('Export failed: ' + e.message, 'warn'); }
+  });
+
+  
+  var BANNED = ["delve into", "embark", "spearhead", "harness", "unleash", "supercharge", "trailblazing", "game-changer", "game changer", "innovative", "meticulous", "invaluable", "ingenious", "pivotal", "comprehensive", "robust", "transformative", "empower", "seamless", "synergy", "proactive", "disruptive", "visionary", "optimize", "leverage", "navigating the landscape", "tapestry", "realm", "ecosystem", "in conclusion", "in summary", "it is worth noting", "it's important to note", "a testament to", "revolutionize", "paint a picture", "dive deep into", "woven into the fabric", "end-to-end", "end to end", "fully integrated", "best-in-class", "world-class", "cutting-edge", "state-of-the-art", "at the end of the day", "in today's world", "going forward"];
+
+  function scanIssues(){
+    var raw = wrap.innerText || wrap.textContent || '';
+    var text = raw.toLowerCase();
+    var hits = [];
+    BANNED.forEach(function(term){
+      var i = text.indexOf(term);
+      if(i === -1) return;
+      hits.push({
+        term: term,
+        near: raw.slice(Math.max(0, i - 45), i + term.length + 45).replace(/\s+/g, ' ').trim()
+      });
+    });
+    if(/[\u2014\u2013]/.test(raw)) hits.push({term: 'em/en dash', near: ''});
+    return hits;
+  }
+
+  function publishLive(){
+    var issues = scanIssues();
+    var version = Date.now().toString(36);
+    var at = new Date().toISOString();
+    setStatus('Publishing to the live site\u2026');
+    return fetch(DB_URL + '/published/' + DOC_KEY + '.json', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({html: wrap.innerHTML, version: version, at: at})
+    }).then(function(r){
+      if(!r.ok) throw new Error('http ' + r.status);
+      fetch(DB_URL + '/publishlog/' + DOC_KEY + '/' + version + '.json', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({at: at, issues: issues})
+      }).catch(function(){});
+      var msg = 'Published \u2014 the live page is updated';
+      if(issues.length){
+        msg += ' (' + issues.length + ' wording note' +
+               (issues.length > 1 ? 's' : '') + ' logged for Evan)';
+      }
+      setStatus(msg, 'saved');
+    }).catch(function(e){
+      setStatus('Publish failed: ' + e.message +
+                ' \u2014 the live page did NOT change', 'warn');
+    });
+  }
+
+  document.getElementById('tm-publish').addEventListener('click', function(){
+    if(!confirm('Publish your edits to the live page?\n\nThis updates the page at the main link straight away.')) return;
+    // Flush the pending draft save FIRST, then publish. Running both at once
+    // lets the save's "Saved to cloud" message land after the publish result
+    // and overwrite it, so the click looks like it did nothing.
+    clearTimeout(saveTimer);
+    save().then(publishLive);
+  });
+
+})();
+
+</script>
+</body>
+</html>
