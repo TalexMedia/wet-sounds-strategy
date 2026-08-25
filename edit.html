@@ -862,7 +862,21 @@ window.addEventListener("load", function(){
 
 (function(){
   var DOC_KEY = 'wet-sounds-v2-b75baf4b';
-  var LOCAL_KEY = 'talex-edit:' + DOC_KEY;
+  var BUILD_ID = 'c5df70f3d2da';
+  // The browser-local draft is keyed to the BUILD, not just the doc. When a doc is
+  // rebuilt and redeployed under the same doc key, an old localStorage draft would
+  // otherwise repaint itself over the new page a moment after load, which looks
+  // exactly like the deploy having failed. Keying on the build makes a stale draft
+  // unreachable, and any draft from a previous build is cleared on load.
+  var LOCAL_KEY = 'talex-edit:' + DOC_KEY + ':' + BUILD_ID;
+  try {
+    for (var i = localStorage.length - 1; i >= 0; i--) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf('talex-edit:' + DOC_KEY) === 0 && k !== LOCAL_KEY) {
+        localStorage.removeItem(k);
+      }
+    }
+  } catch(e){}
   // Carousel decks (tools/deck-unbundle.mjs) carry their text in inline-styled
   // spans inside .slide sections, so the tag list below would miss most of a
   // deck. Scoped to .slide so a bare span stays uneditable in strategy docs.
@@ -871,7 +885,6 @@ window.addEventListener("load", function(){
   var statusEl = document.getElementById('tm-status');
   var saveTimer = null;
   window.__talexDocKey = DOC_KEY;
-  var BUILD_ID = 'c5df70f3d2da';
   window.__tmSkipSave = false;
 
   function setStatus(text, cls){
